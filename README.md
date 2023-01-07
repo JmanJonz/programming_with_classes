@@ -1,5 +1,6 @@
 # cse210-student-template
-My name is Ammon Jones and I live in Sandy
+My name is Ammon Jones and I live in Sandy yea yea
+
 
 This repository contains the starter code for many different projects. They are arranged as follows:
 
