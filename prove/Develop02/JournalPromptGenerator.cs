@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class JournalPromptGenerator
 {
     //Attributes
-    private List<string> prompts = new List<string>() {
+    private static List<string> prompts = new List<string>() {
         "Write about a memorable experience from your childhood.",
         "Describe a person who has had a significant impact on your life.",
         "Reflect on a time when you overcame a challenge.",
@@ -12,7 +12,7 @@ public class JournalPromptGenerator
         "What are you grateful for today?"
     };
     //Metods
-    public string GetRandomPrompt()
+    public static string GetRandomPrompt()
     {
         {
             Random random = new Random();
