@@ -4,7 +4,7 @@ using System.IO;
 public class Journal 
 {
     // Create Attributes
-    private static List<string> journalEntries = new List<string>();
+    private static List<string> _journalEntries = new List<string>();
 
     // Create Methods
     public static void JournalMenu()
@@ -52,14 +52,14 @@ public class Journal
     private static void GetEntry2()
     {
         string completeEntry = Entry.GetEntry();
-        journalEntries.Add(completeEntry);
+        _journalEntries.Add(completeEntry);
         Console.WriteLine("Your entry has been recorded.");
         Console.WriteLine("");
     }
 
     private static void DisplayEntries()
     {
-        foreach(string entry in journalEntries)
+        foreach(string entry in _journalEntries)
         {
             Console.WriteLine($"*{entry}");
         }
@@ -71,7 +71,7 @@ public class Journal
         string dateString = currentDate.ToString("MM-dd-yyyy");
         Console.WriteLine("Save entries as: ");
         string filename = Console.ReadLine();
-        File.AppendAllLines($"{filename}{dateString}.txt", journalEntries);
+        File.AppendAllLines($"{filename}{dateString}.txt", _journalEntries);
     }
 
     private static void LoadPastEntries()
@@ -87,10 +87,10 @@ public class Journal
         {
             if(file.Contains(fileName))
             {
-                journalEntries.Clear();
+                _journalEntries.Clear();
                 foreach(string line in File.ReadLines(file))
                 {
-                    journalEntries.Add(line);
+                    _journalEntries.Add(line);
                 }
             }
         }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class JournalPromptGenerator
 {
     //Attributes
-    private static List<string> prompts = new List<string>() {
+    private static List<string> _prompts = new List<string>() {
         "Write about a memorable experience from your childhood.",
         "Describe a person who has had a significant impact on your life.",
         "Reflect on a time when you overcame a challenge.",
@@ -16,8 +16,8 @@ public class JournalPromptGenerator
     {
         {
             Random random = new Random();
-            int index = random.Next(prompts.Count);
-            return prompts[index];
+            int index = random.Next(_prompts.Count);
+            return _prompts[index];
         }
     }
 }
