@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 public class Entry
 {
-    public static string GetEntry()
+    public string _fullEntry = GetEntry();
+    private static string GetEntry()
     {
         string prompt = JournalPromptGenerator.GetRandomPrompt();
         Console.WriteLine(prompt);

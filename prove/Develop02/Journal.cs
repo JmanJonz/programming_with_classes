@@ -4,7 +4,8 @@ using System.IO;
 public class Journal 
 {
     // Create Attributes
-    private static List<string> _journalEntries = new List<string>();
+    private static List<Entry> _journalEntryObjects = new List<Entry>();
+    private static List<string> _actJournalEntries = new List<string>();
 
     // Create Methods
     public static void JournalMenu()
@@ -49,19 +50,20 @@ public class Journal
         }
         
     }
+
     private static void GetEntry2()
     {
-        string completeEntry = Entry.GetEntry();
-        _journalEntries.Add(completeEntry);
+        Entry entryObj = new Entry();
+        _journalEntryObjects.Add(entryObj);
         Console.WriteLine("Your entry has been recorded.");
         Console.WriteLine("");
     }
 
     private static void DisplayEntries()
     {
-        foreach(string entry in _journalEntries)
+        foreach(Entry entry in _journalEntryObjects)
         {
-            Console.WriteLine($"*{entry}");
+            Console.WriteLine($"*{entry._fullEntry}");
         }
     }
 
@@ -71,7 +73,11 @@ public class Journal
         string dateString = currentDate.ToString("MM-dd-yyyy");
         Console.WriteLine("Save entries as: ");
         string filename = Console.ReadLine();
-        File.AppendAllLines($"{filename}{dateString}.txt", _journalEntries);
+
+        _actJournalEntries.Clear();
+        makeListOFEntry_fullEntryAttributes();
+
+        File.AppendAllLines($"{filename}{dateString}.txt", _actJournalEntries);
     }
 
     private static void LoadPastEntries()
@@ -87,14 +93,22 @@ public class Journal
         {
             if(file.Contains(fileName))
             {
-                _journalEntries.Clear();
+                _actJournalEntries.Clear();
                 foreach(string line in File.ReadLines(file))
                 {
-                    _journalEntries.Add(line);
+                    _actJournalEntries.Add(line);
                 }
             }
         }
             
+    }
+
+    private static void makeListOFEntry_fullEntryAttributes()
+    {
+        foreach(Entry e in _journalEntryObjects)
+        {
+            _actJournalEntries.Add(e._fullEntry);
+        }
     }
 
 }
