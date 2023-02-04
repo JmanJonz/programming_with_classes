@@ -61,9 +61,9 @@ public class Journal
 
     private static void DisplayEntries()
     {
-        foreach(Entry entry in _journalEntryObjects)
+        foreach(string entry in _actJournalEntries)
         {
-            Console.WriteLine($"*{entry._fullEntry}");
+            Console.WriteLine($"*{entry}");
         }
     }
 
