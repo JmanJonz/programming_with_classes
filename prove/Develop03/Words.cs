@@ -4,6 +4,8 @@ class Words
 {
     // Attributes
     private List<string> _words = new List<string>();
+    private Scripture example = new Scripture("D&C 6:36", "Look unto me in every thought: doubt not, fear not.");
+
 
     // Constructors
     public Words()
@@ -15,7 +17,6 @@ class Words
     // Private Methods
     private void SStringToSList()
     {
-        Scripture example = new Scripture("D&C 6:36", "Look unto me in every thought: doubt not, fear not.");
         string scripture = example.GiveScriptureToWords();
         foreach(string word in scripture.Split(" "))
         {
@@ -24,9 +25,13 @@ class Words
     }
 
     // Public Methods
-    public Scripture sendInstanScriObj()
+    public string GetHintToDisplay()
     {
-        
+        return example.GiveHintToWords();
+    }
+    public string GetRefToDisplay()
+    {
+        return example.GiveVerseRefToWords();
     }
     public string HideWords()
     {

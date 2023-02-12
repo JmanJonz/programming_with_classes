@@ -13,18 +13,21 @@ class Scripture
         _verseRef = oneVerse;
         _scripture = scripture;
         Console.WriteLine($"You will be memorizing this scripture:");
-        Console.WriteLine("|" + _scripture + "|");
+        Console.WriteLine("|" + _verseRef + " " + _scripture + "|");
         Console.WriteLine("Enter a hint that you can refer to when do get stuck: ");
         _hint = Console.ReadLine();
+        Console.Clear();
     }
     public Scripture(int numVerse, string multiVerse, string scripture)
     {
         _verseRef = multiVerse;
         _scripture = scripture;
         Console.WriteLine($"You will be memorizing this scripture:");
-        Console.WriteLine("|" + _scripture + "|");
+        Console.WriteLine("|" + _verseRef + " " + _scripture + "|");
         Console.WriteLine("Enter a hint that you can refer to when do get stuck: ");
         _hint = Console.ReadLine();
+        Console.Clear();
+
     }
 
     // Methods
@@ -33,7 +36,7 @@ class Scripture
         return _hint;
     }
 
-    public string GiveVerseRefToDisplay()
+    public string GiveVerseRefToWords()
     {
         return _verseRef;
     }
@@ -42,5 +45,6 @@ class Scripture
     {
         return _scripture;
     }
+    
 }
 

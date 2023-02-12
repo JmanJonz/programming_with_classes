@@ -12,6 +12,8 @@ class Display
     public void DisplayScripture()
     {
         Words wordsObj = new Words();
+        string hintt = wordsObj.GetHintToDisplay();
+        string refer = wordsObj.GetRefToDisplay();
         // Keep showing list with less words until every word is taken by ___
         bool allUnderscores = true;
 
@@ -41,11 +43,11 @@ class Display
                 }
                 else if (input == "h")
                 {
-                    
+                    Console.WriteLine($"Your hint is: {hintt}");
                 }
                 else
                 {
-                    Console.WriteLine(wordsObj.HideWords());
+                    Console.WriteLine($"{refer} {wordsObj.HideWords()}");
                     Console.WriteLine("");
                 }
             
