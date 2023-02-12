@@ -28,7 +28,7 @@ class Scripture
     }
 
     // Methods
-    public string GiveHintToDisplay()
+    public string GiveHintToWords()
     {
         return _hint;
     }

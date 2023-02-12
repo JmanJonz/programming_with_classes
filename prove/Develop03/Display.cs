@@ -29,10 +29,26 @@ class Display
                 }
             }
                 if (allUnderscores == true)
-                break;
-                Console.ReadLine();
-                Console.WriteLine(wordsObj.HideWords());
-                Console.WriteLine("");
+                {
+                    break;
+                }
+                Console.Write("Enter: h for hint, enter to continue, or q to quit: ");
+                string input = Console.ReadLine();
+                Console.Clear();
+                if (input == "q")
+                {
+                    Environment.Exit(0);
+                }
+                else if (input == "h")
+                {
+                    
+                }
+                else
+                {
+                    Console.WriteLine(wordsObj.HideWords());
+                    Console.WriteLine("");
+                }
+            
         }
         while(allUnderscores == false);
 

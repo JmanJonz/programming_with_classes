@@ -24,6 +24,10 @@ class Words
     }
 
     // Public Methods
+    public Scripture sendInstanScriObj()
+    {
+        
+    }
     public string HideWords()
     {
         Random randNum = new Random();
