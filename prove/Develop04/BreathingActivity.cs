@@ -20,7 +20,7 @@ private void DisplayBreathingPrompts(){
 
 // Constructor Methods
 public BreathingActivity(){
-    _activityName = "Breathing Activity";
-    _description = "relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing";
+    base._activityName = "Breathing Activity";
+    base._description = "relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing";
 }
 }

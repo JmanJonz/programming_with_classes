@@ -15,13 +15,17 @@ class Program
             choice = Console.ReadLine();
 
             if(choice == "1" ){
+                Console.Clear();
                 BreathingActivity obj = new BreathingActivity();
                 obj.StartBreathingActivity();
             }
+            if(choice == "2"){
+                Console.Clear();
+                ReflectingActivity obj = new ReflectingActivity();
+                obj.StartReflectingActivity();
+            }
             // if(choice == ){
-
-            // }
-            // if(choice == ){
+                Console.Clear();
 
             // }
         }while(choice != "4");
