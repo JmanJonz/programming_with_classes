@@ -1,6 +1,6 @@
 using System;
 
-class Activity {
+internal class Activity {
     // Functional Methods
     protected int GetActivityDuration() {
         Console.Write("How long should this activity run in seconds? ");
@@ -23,10 +23,11 @@ class Activity {
     protected void DisplayEndingMessage(){
         Console.WriteLine("Well Done!");
         DoForXAmountOfTime(DisplaySpinner, 4);
-        Console.WriteLine($"You have completed another {_duration} of the {_activityName}.");
+        Console.WriteLine("");
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_activityName}.");
         DoForXAmountOfTime(DisplaySpinner, 7);
     }
-    private void DisplaySpinner(){
+    protected void DisplaySpinner(){
         List<char> spinnerChars = new List<char> {'\\','|','/','-'};
         foreach (char dash in spinnerChars){
             Console.Write(dash);
@@ -53,7 +54,7 @@ class Activity {
     }
 
     // Member Variables
-    private int _duration;
+    protected int _duration;
     protected string _activityName;
     protected string _description;
 
