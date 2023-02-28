@@ -18,14 +18,14 @@ internal class Activity {
         _duration = GetActivityDuration();
         Console.Clear();
         Console.WriteLine("Prepare yourself...");
-        DoForXAmountOfTime(DisplaySpinner, 7);
+        DoForXAmountOfTime(DisplaySpinner, 4);
     }
     protected void DisplayEndingMessage(){
         Console.WriteLine("Well Done!");
         DoForXAmountOfTime(DisplaySpinner, 4);
         Console.WriteLine("");
         Console.WriteLine($"You have completed another {_duration} seconds of the {_activityName}.");
-        DoForXAmountOfTime(DisplaySpinner, 7);
+        DoForXAmountOfTime(DisplaySpinner, 4);
     }
     protected void DisplaySpinner(){
         List<char> spinnerChars = new List<char> {'\\','|','/','-'};
@@ -42,14 +42,20 @@ internal class Activity {
             Console.Write("\b \b");
         }
     }
-    protected void DisplayRandomPrompts(List<string> prompts){
+    protected void DisplayRandomPrompt(List<string> prompts, int promptQuantity){
         Random random = new Random();
         int count = prompts.Count;
         while (count > 0){
-            int index = random.Next(count);
-            Console.WriteLine(prompts[index]);
-            prompts[index] = prompts[count - 1];
-            count--;
+            if(promptQuantity > 0)
+            {
+                int index = random.Next(count);
+                Console.WriteLine(prompts[index]);
+                prompts[index] = prompts[count - 1];
+                count--;
+                promptQuantity--;
+            }else{
+                Console.WriteLine("");
+            }
         }
     }
 

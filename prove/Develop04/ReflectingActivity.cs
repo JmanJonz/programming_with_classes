@@ -4,17 +4,17 @@ internal class ReflectingActivity : Activity{
     // Functional Methods
     public void StartReflectingActivity(){
         base.DisplayStartingMessage();
-        base.DoForXAmountOfTime();
+        Console.WriteLine("Consider the following prompt:\n");
+        Console.Write("---"); base.DisplayRandomPrompt(_reflectPrompts, 2); Console.Write("---");
+        // base.DoForXAmountOfTime(DisplayReflectPrompts, base._duration);
         base.DisplayEndingMessage();
     }
     private void DisplayReflectPrompts(){
-        Console.WriteLine("Consider the following prompt:\n");
-        Console.WriteLine()
     }
 
     // Member Variables
-    List<string> reflectPrompts = new List<string> {"Think of a time when you did something difficult.", "Recall a time when you made a sacrificial decision.", "Remember a time when you faced a challenging situation."};
-    List<string> digDeeper = new List<string> {}
+    List<string> _reflectPrompts = new List<string> {"Think of a time when you did something difficult.", "Recall a time when you made a sacrificial decision.", "Remember a time when you faced a challenging situation."};
+    List<string> _digDeeper = new List<string> {"What motivated you to do what you did?", "What did you learn from the experience?", "How did the experience change you?", "Would you do it again? Why or why not?"};
     // Constructor Methods
     public ReflectingActivity(){
         base._activityName = "Reflecting Activity";
