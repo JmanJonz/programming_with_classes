@@ -41,7 +41,7 @@ internal class Activity {
             Thread.Sleep(1000);
             Console.Write("\b \b");
         }
-    }
+    } 
     protected void DisplayRandomPrompt(List<string> prompts, int promptQuantity){
         Random random = new Random();
         int count = prompts.Count;
@@ -50,11 +50,12 @@ internal class Activity {
             {
                 int index = random.Next(count);
                 Console.WriteLine(prompts[index]);
+                Thread.Sleep(1000);
                 prompts[index] = prompts[count - 1];
                 count--;
                 promptQuantity--;
             }else{
-                Console.WriteLine("");
+                return;
             }
         }
     }

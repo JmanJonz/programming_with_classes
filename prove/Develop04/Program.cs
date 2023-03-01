@@ -19,7 +19,7 @@ class Program
                 BreathingActivity obj = new BreathingActivity();
                 obj.StartBreathingActivity();
             }
-            if(choice == "2"){
+            if(choice == "2"){ 
                 Console.Clear();
                 ReflectingActivity obj = new ReflectingActivity();
                 obj.StartReflectingActivity();
