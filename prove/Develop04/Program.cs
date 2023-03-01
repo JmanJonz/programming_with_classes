@@ -1,3 +1,6 @@
+// To exceede requirements I made it so that when I get random promps from a list that it makes sure to use 
+// each prompt at least once before reapeating it. I did this by taking the item at the end of the list
+// and moving it to the spot of the one that I just used and then lowering the list count by one each time.
 using System;
 
 class Program
@@ -19,15 +22,17 @@ class Program
                 BreathingActivity obj = new BreathingActivity();
                 obj.StartBreathingActivity();
             }
-            if(choice == "2"){ 
+            if(choice == "2"){
                 Console.Clear();
                 ReflectingActivity obj = new ReflectingActivity();
                 obj.StartReflectingActivity();
             }
-            // if(choice == ){
+            if(choice == "3" ){
                 Console.Clear();
+                ListingActivity obj = new ListingActivity();
+                obj.StartListingActivity();
 
-            // }
+            }
         }while(choice != "4");
         
     }
