@@ -33,11 +33,19 @@ public static class GoalInterface{
         int countDisplayed = 1;
         Console.WriteLine("Here is your list of goals: ");
         foreach(Goal goal in _listOfGoals){
-            if (goal.IsComplete()){
-                Console.WriteLine($"{countDisplayed}. [X] {goal.Get_goalName()} : {goal.Get_goalDescription()}");
+            if (goal.IsComplete() && goal is ChecklistGoal){
+                ChecklistGoal checkGoal = goal as ChecklistGoal;
+                Console.WriteLine($"{countDisplayed}. [X] {checkGoal.GetGoalName()} : {checkGoal.GetGoalDescription()} : {checkGoal.GetCompleteRatio()}");
+                countDisplayed++;
+            }else if (goal.IsComplete()){
+                Console.WriteLine($"{countDisplayed}. [X] {goal.GetGoalName()} : {goal.GetGoalDescription()}");
+                countDisplayed++;
+            }else if (!goal.IsComplete() && goal is ChecklistGoal){
+                ChecklistGoal checkGoal = goal as ChecklistGoal;
+                Console.WriteLine($"{countDisplayed}. [ ] {checkGoal.GetGoalName()} : {checkGoal.GetGoalDescription()} : {checkGoal.GetCompleteRatio()}");
                 countDisplayed++;
             }else{
-                Console.WriteLine($"{countDisplayed}. [ ] {goal.Get_goalName()} : {goal.Get_goalDescription()}");
+                Console.WriteLine($"{countDisplayed}. [ ] {goal.GetGoalName()} : {goal.GetGoalDescription()}");
                 countDisplayed++;
             }
         }
@@ -52,6 +60,13 @@ public static class GoalInterface{
         if(_listOfGoals[goalTaskCompleted - 1].IsComplete()){
             Console.WriteLine("Congradulations X2! You completed this goal!");
             _numberGoalsCompletedTotal += 1;
+        }
+        if(_listOfGoals[goalTaskCompleted - 1] is ChecklistGoal){
+            ChecklistGoal cG = _listOfGoals[goalTaskCompleted - 1] as ChecklistGoal;
+            if(cG.IsComplete()){
+                Console.WriteLine($"Congradulations X3 you won a bonus of {cG.GetCGBonusPoints()}!!!!!");
+                _pointsForGoalList += cG.GetCGBonusPoints();
+            }
         }
 
     }

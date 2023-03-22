@@ -21,11 +21,14 @@ public class Goal{
     protected bool _goalIsComplete = false;
 
     // Getter & Setter Methods
-    public string Get_goalName(){
+    public string GetGoalName(){
         return _goalName;
     }
-    public string Get_goalDescription(){
+    public string GetGoalDescription(){
         return _goalDescription;
+    }
+    public int GetGoalType(){
+        return _goalType;
     }
 
     // Constructor Methods
