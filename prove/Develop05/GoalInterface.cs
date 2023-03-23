@@ -54,21 +54,28 @@ public static class GoalInterface{
         DisplayGoalList();
         Console.WriteLine("You completed a task for which goal? ");
         int goalTaskCompleted = int.Parse(Console.ReadLine());
-        int pointsGot = _listOfGoals[goalTaskCompleted - 1].RecordEvent();
-        _pointsForGoalList += pointsGot;
-        Console.WriteLine($"Congradulations you earned {pointsGot} points!");
-        if(_listOfGoals[goalTaskCompleted - 1].IsComplete()){
-            Console.WriteLine("Congradulations X2! You completed this goal!");
-            _numberGoalsCompletedTotal += 1;
-        }
-        if(_listOfGoals[goalTaskCompleted - 1] is ChecklistGoal){
-            ChecklistGoal cG = _listOfGoals[goalTaskCompleted - 1] as ChecklistGoal;
-            if(cG.IsComplete()){
-                Console.WriteLine($"Congradulations X3 you won a bonus of {cG.GetCGBonusPoints()}!!!!!");
-                _pointsForGoalList += cG.GetCGBonusPoints();
+        try{
+            if(_listOfGoals[goalTaskCompleted - 1].IsComplete() == false){
+                int pointsGot = _listOfGoals[goalTaskCompleted - 1].RecordEvent();
+                _pointsForGoalList += pointsGot;
+                Console.WriteLine($"Congradulations you earned {pointsGot} points!");
+                if(_listOfGoals[goalTaskCompleted - 1].IsComplete()){
+                    Console.WriteLine("Congradulations X2! You completed this goal!");
+                    _numberGoalsCompletedTotal += 1;
+                }
+                if(_listOfGoals[goalTaskCompleted - 1] is ChecklistGoal){
+                    ChecklistGoal cG = _listOfGoals[goalTaskCompleted - 1] as ChecklistGoal;
+                    if(cG.IsComplete()){
+                        Console.WriteLine($"Congradulations X3 you won a bonus of {cG.GetCGBonusPoints()}!!!!!");
+                        _pointsForGoalList += cG.GetCGBonusPoints();
+                    }
+                }
+            }else{
+                Console.WriteLine("You already completed this goal...");
             }
+        }catch(Exception ex){
+            Console.WriteLine("An exception occurred: " + ex.Message);
         }
-
     }
 
     // Member Varialbes

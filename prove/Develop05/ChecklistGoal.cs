@@ -1,9 +1,15 @@
 public class ChecklistGoal : Goal{
     // Functional Methods
     public override int RecordEvent(){
-        base._goalEventsCompleted++;
-        _completeRatio = $"{base._goalEventsCompleted}/{base._goalEventsTillCompleted}"; 
-        return base._goalPointsPerEvent;
+        if(base.IsComplete() == false){
+            base._goalEventsCompleted++;
+            _completeRatio = $"{base._goalEventsCompleted}/{base._goalEventsTillCompleted}"; 
+            return base._goalPointsPerEvent;
+        }else{
+            Console.WriteLine("You already completed this goal...");
+            return 0;
+        }
+        
     }
 
     // Member Variables

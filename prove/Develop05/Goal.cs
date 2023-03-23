@@ -1,8 +1,13 @@
 public class Goal{
     // Functional Methods
     public virtual int RecordEvent(){
-        _goalEventsCompleted++;
+        if(IsComplete() == false){
+            _goalEventsCompleted++;
         return _goalPointsPerEvent;
+        }else{
+            Console.WriteLine("You already completed this goal...");
+            return 0;
+        }
     }
     public virtual bool IsComplete(){
         if(_goalEventsCompleted >= _goalEventsTillCompleted){
