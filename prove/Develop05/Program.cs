@@ -2,6 +2,11 @@ using System;
 
 class Program
 {
+    // Creativity: In order to show creativity and exceed requirements I made it so that
+    // the program keeps track of a running total of all the goals that the user has completed
+    // accross all goal lists that they have created and I display it above the main menu. This
+    // could be a nice feature to have as the user might have multiple lists of different goals 
+    // and it could be rewarding to see the running total. 
     static void Main(string[] args)
     {
         int option;
