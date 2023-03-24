@@ -1,0 +1,5 @@
+totalGoalsCompleted,2
+listPoints,210
+SimpleGoal,1,sg,sssssssss,10,1,1,True
+CheckListGoal,1,cg,ccccccccccc,20,5,5,True,5/5,100
+EternalGoal,1,eg,eeeeeee,30,1,0,False

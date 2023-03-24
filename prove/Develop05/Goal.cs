@@ -26,14 +26,26 @@ public class Goal{
     protected bool _goalIsComplete = false;
 
     // Getter & Setter Methods
+    public int GetGoalType(){
+        return _goalType;
+    }
     public string GetGoalName(){
         return _goalName;
     }
     public string GetGoalDescription(){
         return _goalDescription;
     }
-    public int GetGoalType(){
-        return _goalType;
+    public int GetGoalPointsPerEvent(){
+        return _goalPointsPerEvent;
+    }
+    public int GetTimesTillCompleted(){
+        return _goalEventsTillCompleted;
+    }
+    public int GetTimesCompleted(){
+        return _goalEventsCompleted;
+    }
+    public bool GetGoalIsComplete(){
+        return _goalIsComplete;
     }
 
     // Constructor Methods
@@ -47,5 +59,14 @@ public class Goal{
 
         Console.Write("How many points do you want per goal event accomplished? ");
         _goalPointsPerEvent = int.Parse(Console.ReadLine());
+    }
+    public Goal(int goalType, string goalName, string goalDescription, int pointsPerEvent, int tillCompleted, int amountCompleted, bool isComplete){
+        _goalType = goalType;
+        _goalName = goalName;
+        _goalDescription = goalDescription;
+        _goalPointsPerEvent = pointsPerEvent;
+        _goalEventsTillCompleted = tillCompleted;
+        _goalEventsCompleted = amountCompleted;
+        _goalIsComplete = isComplete;
     }
 }

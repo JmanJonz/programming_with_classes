@@ -22,9 +22,9 @@ class Program
                 }else if(option == 2){
                     GoalInterface.DisplayGoalList();
                 }else if(option == 3){
-
+                    GoalInterface.SaveList();
                 }else if(option == 4){
-
+                    GoalInterface.LoadList();
                 }else if(option == 5){
                     GoalInterface.PerformEventActions();
                 }else if(option != 6){

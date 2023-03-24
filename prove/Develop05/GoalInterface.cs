@@ -77,6 +77,51 @@ public static class GoalInterface{
             Console.WriteLine("An exception occurred: " + ex.Message);
         }
     }
+    public static void SaveList(){
+        Console.Write("Save as: ");
+        string fileName = Console.ReadLine();
+        using (var writer = new StreamWriter(fileName)){
+            writer.WriteLine($"totalGoalsCompleted,{_numberGoalsCompletedTotal}");
+            writer.WriteLine($"listPoints,{_pointsForGoalList}");
+            foreach (var goal in _listOfGoals){
+                if(goal is SimpleGoal){
+                    var sG = goal as SimpleGoal;
+                    writer.WriteLine($"SimpleGoal,1,{sG.GetGoalName()},{sG.GetGoalDescription()},{sG.GetGoalPointsPerEvent()},{sG.GetTimesTillCompleted()},{sG.GetTimesCompleted()},{sG.GetGoalIsComplete()}");
+                }else if(goal is ChecklistGoal){
+                    var cG = goal as ChecklistGoal;
+                            writer.WriteLine($"CheckListGoal,2,{cG.GetGoalName()},{cG.GetGoalDescription()},{cG.GetGoalPointsPerEvent()},{cG.GetTimesTillCompleted()},{cG.GetTimesCompleted()},{cG.GetGoalIsComplete()},{cG.GetCompleteRatio()},{cG.GetCGBonusPoints()}");
+                }else if(goal is EternalGoal){
+                    var eG = goal as EternalGoal;
+                    writer.WriteLine($"EternalGoal,3,{eG.GetGoalName()},{eG.GetGoalDescription()},{eG.GetGoalPointsPerEvent()},{eG.GetTimesTillCompleted()},{eG.GetTimesCompleted()},{eG.GetGoalIsComplete()}");
+                }
+            }
+        }
+    }
+    public static void LoadList(){
+        Console.WriteLine("Load Goals From: ");
+        string fileName = Console.ReadLine();
+        using(var reader = new StreamReader(fileName)){
+            _listOfGoals.Clear();
+            string line;
+            while((line = reader.ReadLine()) != null){
+                var parts = line.Split(",");
+                if(parts.Length >= 2){
+                    if(parts[0] == "totalGoalsCompleted"){
+                        _numberGoalsCompletedTotal += int.Parse(parts[1]);
+                    }else if(parts[0] == "listPoints"){
+                        _pointsForGoalList = int.Parse(parts[1]);
+                    }else if(parts[0] == "SimpleGoal"){
+                        _listOfGoals.Add(new SimpleGoal())
+                    }else if(parts[0] == "CheckListGoal"){
+
+                    }else if(parts[0] == "EternalGoal"){
+
+                    }
+                }
+                
+            }
+        }
+    }
 
     // Member Varialbes
     public static int _pointsForGoalList = 0;
