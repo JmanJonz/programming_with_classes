@@ -98,7 +98,7 @@ public static class GoalInterface{
         }
     }
     public static void LoadList(){
-        Console.WriteLine("Load Goals From: ");
+        Console.Write("Load Goals From: ");
         string fileName = Console.ReadLine();
         using(var reader = new StreamReader(fileName)){
             _listOfGoals.Clear();
@@ -111,11 +111,11 @@ public static class GoalInterface{
                     }else if(parts[0] == "listPoints"){
                         _pointsForGoalList = int.Parse(parts[1]);
                     }else if(parts[0] == "SimpleGoal"){
-                        _listOfGoals.Add(new SimpleGoal())
+                        _listOfGoals.Add(new SimpleGoal(int.Parse(parts[1]),parts[2],parts[3],int.Parse(parts[4]),int.Parse(parts[5]),int.Parse(parts[6]),bool.Parse(parts[7])));
                     }else if(parts[0] == "CheckListGoal"){
-
+                        _listOfGoals.Add(new ChecklistGoal(int.Parse(parts[1]),parts[2],parts[3],int.Parse(parts[4]),int.Parse(parts[5]),int.Parse(parts[6]),bool.Parse(parts[7]),parts[8],int.Parse(parts[9])));                        
                     }else if(parts[0] == "EternalGoal"){
-
+                        _listOfGoals.Add(new EternalGoal(int.Parse(parts[1]),parts[2],parts[3],int.Parse(parts[4]),int.Parse(parts[5]),int.Parse(parts[6]),bool.Parse(parts[7])));
                     }
                 }
                 

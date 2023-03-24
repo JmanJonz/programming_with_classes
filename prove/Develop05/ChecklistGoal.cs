@@ -33,4 +33,8 @@ public class ChecklistGoal : Goal{
         Console.Write("How many bonus points would you like to recieve for completing this Check List Goal? ");
         _cGBounusPoints = int.Parse(Console.ReadLine());
     }
+    public ChecklistGoal(int goalType, string goalName, string goalDescription, int pointsPerEvent, int tillCompleted, int amountCompleted, bool isComplete, string completeRatio, int bonusPoints) : base(goalType,goalName,goalDescription,pointsPerEvent,tillCompleted,amountCompleted,isComplete){
+        _completeRatio = completeRatio;
+        _cGBounusPoints = bonusPoints;
+    }
 }
