@@ -25,6 +25,7 @@ class Program
             Console.WriteLine(vid.GetTitle());
             Console.WriteLine(vid.GetAuthor());
             Console.WriteLine(vid.GetLength());
+            Console.WriteLine($"There are {vid.GetNumberOfComments()} on this video");
             Console.WriteLine("---------Comments--------");
             foreach(Comment com in vid.GetComments()){
                 Console.WriteLine(com.GetCommentAuthor());
