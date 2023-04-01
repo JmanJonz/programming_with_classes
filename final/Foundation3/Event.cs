@@ -4,7 +4,7 @@ public class Event{
         return $"Type of event: {eventType}\nTitle: {_title}\nDate: {_date}";
     }
     public string StandardM(){
-        return $"Event Title: {_title}\nDescription: {_description}\nDate: {_date}\nTime: {_time}\nAddress: {_address}";
+        return $"Event Title: {_title}\nDescription: {_description}\nDate: {_date}\nTime: {_time}\nAddress: {_address.GetAddress()}";
     }
 
     // Member Variables

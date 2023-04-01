@@ -1,7 +1,7 @@
 public class Lecture : Event{
     // Functional Methods
     public string FullM(){
-        return $"{base.StandardM}\nSpeaker: {_speaker}\nCapacity: {_capacity}";
+        return $"{base.StandardM()}\nSpeaker: {_speaker}\nCapacity: {_capacity}";
     }
 
     // Member Variables
